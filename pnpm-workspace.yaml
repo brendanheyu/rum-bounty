@@ -1,0 +1,5 @@
+packages:
+  # All interactive applications (UI and API layers)
+  - 'apps/*'
+  # Shared configurations, database schemas, and workflow backups
+  - 'packages/*'

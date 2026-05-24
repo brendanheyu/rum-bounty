@@ -1,0 +1,19 @@
+{
+    "name": "rum-bounty-root",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Monorepo linking Stitch UI, Vercel frontend, backend API, and n8n workflows",
+    "scripts": {
+        "dev:frontend": "pnpm --filter frontend dev",
+        "dev:backend": "pnpm --filter backend dev",
+        "build:frontend": "pnpm --filter frontend build",
+        "build:backend": "pnpm --filter backend build",
+        "db:migrate": "pnpm --filter db db:migrate",
+        "db:studio": "pnpm --filter db db:studio",
+        "clean": "pnpm -r exec rm -rf .next node_modules dist out"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "packageManager": "pnpm@9.0.0"
+}
