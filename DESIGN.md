@@ -2,7 +2,7 @@
 
 ## 1. Core Visual Principles & Design Tokens
 
-This application must feel premium, data-dense, and highly scannable. It is an analytics engine masquerading as a retail directory. Avoid bloated whitespace; prioritize clarity at a glance.
+This application must feel premium, data-dense, and highly scannable. It is an analytics engine masquerading as a retail directory. Avoid bloated whitespace; prioritise clarity at a glance.
 
 ### A. Colour Palette (Dark Mode First)
 * **Surface Foundation:** Deep obsidian/charcoal spectrum (e.g., Background: `#0B0C10`, Card Surface: `#1F2833`).
@@ -14,7 +14,7 @@ This application must feel premium, data-dense, and highly scannable. It is an a
     * `Historical Best`: Intense amber/orange fire gradient (`#E67E22` to `#D35400`).
 
 ### B. Typography & Density
-* **Scale:** Clean sans-serif hierarchy (system-ui standard) optimized for compact tabular data and numerals.
+* **Scale:** Clean sans-serif hierarchy (system-ui standard) optimised for compact tabular data and numerals.
 * **Density:** Tight component padding to ensure a desktop user can see at least 8 to 12 product cards above the fold without scrolling.
 
 ---
@@ -24,7 +24,9 @@ This application must feel premium, data-dense, and highly scannable. It is an a
 ### A. The Master Rum Card
 The fundamental building block of the primary user interface.
 
+
 ```
+
 +---------------------------------------+
 | [Badge: NEW] [Badge: SPECIAL]         |
 |                                       |
@@ -39,13 +41,13 @@ The fundamental building block of the primary user interface.
 | FROM $79.99                           |
 | Price Range: $79.99 - $95.00          |
 +---------------------------------------+
-```
 
+```
 
 * **Image Handling:** Rendered within a fixed-aspect container. Must display your custom processed transparent alpha-channel `.png` assets cleanly against card backgrounds.
 * **Card Badging Rules:**
     * `New`: Injected if the product profile is less than 14 days old.
-    * `Back in Stock`: Injected if a product returns after a complete inventory hiatus.
+    * `Back in Stock`: Injected if a product returns after a complete inventory hiatus and its `restocked_at` timestamp is less than 72 hours old.
     * `Special`: Injected if any linked store has a live promotion.
     * `Out of Stock`: If active across all stores, the entire card opacity drops to 60%, active prices are hidden, and it displays `"Out of Stock (Last Seen $XX.XX)"`.
 
@@ -57,13 +59,13 @@ The fundamental building block of the primary user interface.
 The entry point for standard users. Focuses on immediate tracking status and rapid filtration.
 
 * **Layout Structure:**
-    1.  **Top Navigation Utility Header:** Contains the application branding, high-level ecosystem metrics (`Total Expressions Tracked`, `Active Specials Today`), and an global search input.
-    2.  **Filter Toolbar:** A horizontal row of compact pill-buttons for rapid data slicing:
+    1. **Top Navigation Utility Header:** Contains the application branding, high-level ecosystem metrics (`Total Expressions Tracked`, `Active Specials Today`), and a global search input.
+    2. **Filter Toolbar:** A horizontal row of compact pill-buttons for rapid data slicing:
         * `In Stock Only` (Toggle Switch)
         * `Specials Only` (Toggle Switch)
         * `Country` (Dropdown multiselect)
         * `ABV Range` (Dropdown selectors)
-    3.  **The Infinite Product Grid:** A responsive grid displaying the Master Rum Cards (minimum 4 columns on desktop, 2 columns on mobile).
+    3. **The Infinite Product Grid:** A responsive grid displaying the Master Rum Cards (minimum 4 columns on desktop, 2 columns on mobile).
 
 * **Component Interaction:**
     * Hovering over a card subtly scales the container and intensifies the amber accent border.
@@ -75,10 +77,10 @@ The entry point for standard users. Focuses on immediate tracking status and rap
 Provides absolute market transparency regarding a specific expression without forcing the user to leave their current scroll position on the main grid.
 
 * **Layout Structure:**
-    1.  **Hero Metadata Header:** Displays an enlarged view of the verified transparent bottle asset side-by-side with the fully normalised spirit specifications (Brand, Name, Exact ABV, Size, Age Statement, Country).
-    2.  **The "Rum Hunter" Narrative Block:** Displays the automated, up-cycled description summary crafted by your local LLM (tasting notes, history, and production style).
-    3.  **Marketplace Directory Table:** An explicit directory tracking where to source the bottle within Australia.
-    4.  **Price Trend Charting Workspace:** A dedicated zone rendering a historical timeline graph of the item's price fluctuations over the past 6 months.
+    1. **Hero Metadata Header:** Displays an enlarged view of the verified transparent bottle asset side-by-side with the fully normalised spirit specifications (Brand, Name, Exact ABV, Size, Age Statement, Country).
+    2. **The "Rum Hunter" Narrative Block:** Displays the automated, up-cycled description summary crafted by your local LLM (tasting notes, history, and production style).
+    3. **Marketplace Directory Table:** An explicit directory tracking where to source the bottle within Australia.
+    4. **Price Trend Charting Workspace:** A dedicated zone rendering a historical timeline graph of the item's price fluctuations over the past 6 months.
 
 * **The Marketplace Directory Sorting Law:**
     * Rows **must** sort by absolute lowest numeric price first, completely ignoring stock availability.
@@ -106,14 +108,14 @@ The operational command center where you handle low-confidence matches flagged b
 The administrative command cockpit used to configure scrape cadences, track source health, and expand target pipelines.
 
 * **Layout Structure:**
-    1.  **System Health Metric Ribbon:** High-level system indicators showing `Total Tracked Retailers`, `Failed Scrapes (24h)`, and `Pending Queue Items`.
-    2.  **The Registry Management Data-Grid:** A dense tabular array parsing your `Site_Registry` table:
+    1. **System Health Metric Ribbon:** High-level system indicators showing `Total Tracked Retailers`, `Failed Scrapes (24h)`, and `Pending Queue Items`.
+    2. **The Registry Management Data-Grid:** A dense tabular array parsing your `Site_Registry` table:
         * `Store Identifier`: Text label with direct link.
         * `Target Clusters`: An expander showing the array of hardlinked URLs mapped to this specific task profile (e.g., Jimmy's Rums 6 pages).
         * `Scrape Interval Selector`: Inline dropdown (`24h`, `48h`, `72h`, `Weekly`) updating backend cron rules instantly.
         * `Status Toggle`: An inline iOS-style toggle switch (`Active` / `Inactive`) to halt operations instantly.
-        * `Action Core`: A secondary icon button labeled `Queue Quick Scrape` that safely flags the row for prioritized asynchronous background retrieval.
-    3.  **The Pipeline Expansion Form:** A simple expandable form layout at the foot of the page allowing you to input a new store name, select an extraction strategy profile (JSON Feed vs HTML DOM vs Headless Javascript), and input an initial array of source URLs.
+        * `Action Core`: A secondary icon button labeled `Queue Quick Scrape` that safely flags the row for prioritised asynchronous background retrieval.
+    3. **The Pipeline Expansion Form:** A simple expandable form layout at the foot of the page allowing you to input a new store name, select an extraction strategy profile (JSON Feed vs HTML DOM vs Headless Javascript), and input an initial array of source URLs.
 
 ---
 
@@ -121,5 +123,5 @@ The administrative command cockpit used to configure scrape cadences, track sour
 
 Stitch must design clear UI states for the following conditions across all screens:
 * **Loading State:** Custom skeleton components matching the exact dimensional layout of cards/tables. Avoid generic spinning loaders.
-* **Empty State:** Clean, centered typography blocks with an amber accent action button (e.g., "Clear Filters" or "Add New Target URL").
-*
+* **Empty State:** Clean, centred typography blocks with an amber accent action button (e.g., "Clear Filters" or "Add New Target URL").
+* **Error State:** Non-intrusive inline alert modules featuring explicit diagnostic logs (e.g., "Supabase API connection timeout—retrying...") to handle edge-case failures gracefully without crashing the UI.
