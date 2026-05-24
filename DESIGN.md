@@ -24,6 +24,7 @@ This application must feel premium, data-dense, and highly scannable. It is an a
 ### A. The Master Rum Card
 The fundamental building block of the primary user interface.
 
+```
 +---------------------------------------+
 | [Badge: NEW] [Badge: SPECIAL]         |
 |                                       |
@@ -38,6 +39,7 @@ The fundamental building block of the primary user interface.
 | FROM $79.99                           |
 | Price Range: $79.99 - $95.00          |
 +---------------------------------------+
+```
 
 
 * **Image Handling:** Rendered within a fixed-aspect container. Must display your custom processed transparent alpha-channel `.png` assets cleanly against card backgrounds.
